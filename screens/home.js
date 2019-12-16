@@ -1,17 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { globalStyles } from "../styles/global";
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Text>Home</Text>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.textTitle}>Home screen</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 24
-  }
-});
-export default Home;
+export default Home ;
