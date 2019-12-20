@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import Home from "./screens/home";
-import * as Font from "expo-font";
 import { AppLoading } from "expo";
+import * as Font from "expo-font";
+import Home from "./screens/home";
+import Navigator from './routes/HomeStack'
+
 
 export default function App() {
   const [stateFonts, setStateFonts] = useState(false);
   if (!stateFonts) {
-    return (
+    return (  
       <AppLoading startAsync={getFonts} onFinish={() => setStateFonts(true)} />
     );
   } else {
-    return <Home />;
+    return <Navigator />;
   }
 }
 
