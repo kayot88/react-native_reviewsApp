@@ -19,6 +19,7 @@ const Home = ({ navigation }) => {
     <View style={globalStyles.container}>
       <FlatList
         data={reviews}
+        
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => navigation.navigate("ReviewDetails", item)}
