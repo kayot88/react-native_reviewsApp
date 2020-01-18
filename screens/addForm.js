@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, TextInput, Text, Button } from "react-native";
 import { Formik } from "formik";
 import { globalStyles } from "./../styles/global";
+import FlatButton from "../shared/flatButton";
 import * as yup from "yup";
 const AddForm = ({ addReview }) => {
   const reviewSchema = yup.object({
@@ -38,26 +39,34 @@ const AddForm = ({ addReview }) => {
               style={globalStyles.input}
               onChangeText={props.handleChange("title")}
               value={props.values.title}
+              onBlur={props.handleBlur("title")}
             />
+            <Text style={globalStyles.errorText}>
+              {props.touched.title && props.errors.title}
+            </Text>
             <TextInput
               multiline
               placeholder="Review body"
               style={globalStyles.input}
               onChangeText={props.handleChange("body")}
               value={props.values.body}
+              onBlur={props.handleBlur("body")}
             />
+            <Text style={globalStyles.errorText}>
+              {props.touched.body && props.errors.body}
+            </Text>
             <TextInput
               placeholder="Rating 1-5"
               style={globalStyles.input}
               onChangeText={props.handleChange("rating")}
               value={props.values.rating}
               keyboardType="numeric"
+              onBlur={props.handleBlur("rating")}
             />
-            <Button
-              title="Submit"
-              color="maroon"
-              onPress={props.handleSubmit}
-            />
+            <Text style={globalStyles.errorText}>
+              {props.touched.rating && props.errors.rating}
+            </Text>
+            <FlatButton onPress={props.handleSubmit} text="submit" />
           </View>
         )}
       </Formik>

@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   Modal,
   TouchableWithoutFeedback,
-  Keyboard,
-  TouchableWithoutFeedbackBase
+  Keyboard
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import AddForm from "./addForm";
@@ -26,7 +25,6 @@ const Home = ({ navigation }) => {
     review.key = Math.random().toString();
     setReviews(currentState => [review, ...currentState]);
     setmodalVisible(false);
-    // console.log(reviews);
   };
 
   return (
