@@ -5,7 +5,10 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Modal
+  Modal,
+  TouchableWithoutFeedback,
+  Keyboard,
+  TouchableWithoutFeedbackBase
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import AddForm from "./addForm";
@@ -19,18 +22,27 @@ const Home = ({ navigation }) => {
     { title: "2eeegeas", rating: 3, body: "lorem2", key: "2" },
     { title: "3eeegeas", rating: 1, body: "lorem3", key: "3" }
   ]);
+  const addReview = review => {
+    review.key = Math.random().toString();
+    setReviews(currentState => [review, ...currentState]);
+    setmodalVisible(false);
+    // console.log(reviews);
+  };
+
   return (
     <View style={globalStyles.container}>
       <Modal visible={modalVisible} animationType="slide">
-        <View style={styles.modalContent}>
-          <MaterialIcons
-            name="cancel"
-            onPress={() => setmodalVisible(false)}
-            style={{ ...styles.modalToggle, ...styles.modalClose }}
-            size={28}
-          />
-          <AddForm />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <MaterialIcons
+              name="cancel"
+              onPress={() => setmodalVisible(false)}
+              style={{ ...styles.modalToggle, ...styles.modalClose }}
+              size={28}
+            />
+            <AddForm addReview={addReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
       <MaterialIcons
         name="add-circle-outline"
