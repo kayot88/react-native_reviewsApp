@@ -8,6 +8,7 @@ import {
   Modal
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import AddForm from "./addForm";
 import { globalStyles } from "../styles/global";
 import Card from "./../shared/card";
 
@@ -28,7 +29,7 @@ const Home = ({ navigation }) => {
             style={{ ...styles.modalToggle, ...styles.modalClose }}
             size={28}
           />
-          <Text>hello from modal!</Text>
+          <AddForm />
         </View>
       </Modal>
       <MaterialIcons
@@ -62,9 +63,9 @@ const styles = StyleSheet.create({
   modalToggle: {
     padding: 10
   },
-  modalContent:{
+  modalContent: {
     flex: 1,
-    alignItems:'center'
+    alignItems: "center"
   }
 });
 
