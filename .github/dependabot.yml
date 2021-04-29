@@ -1,0 +1,27 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: expo
+    versions:
+    - 40.0.1
+    - 41.0.0
+  - dependency-name: expo-font
+    versions:
+    - 9.0.0
+  - dependency-name: yup
+    versions:
+    - 0.32.8
+  - dependency-name: react-native-reanimated
+    versions:
+    - 1.13.2
+  - dependency-name: react-navigation
+    versions:
+    - 4.4.3
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
