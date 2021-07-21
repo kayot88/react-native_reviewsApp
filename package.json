@@ -23,7 +23,7 @@
     "yup": "^0.28.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "~8.0.0"
+    "babel-preset-expo": "~8.4.1"
   },
   "private": true
 }
